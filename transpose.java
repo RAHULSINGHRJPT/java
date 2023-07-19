@@ -1,79 +1,84 @@
-/*design a java program with one meathod to put even and odd elements of an array in two seperate arrays and another meathods to find the transpose of the 
-matrix by implement the concept of meathods overriding */
-
-
 import java.util.*;
-public class transpose
-{
-    static void Transpose()
-    {
-        int arr[][] = {{1,2,3},{4,5,8},{1,8,5}};
-        int arr2[][] = new int[3][3];
-        for(int i=0; i<3; i++)
+ class Method_overriding {
+   void meth()
+   {
+        System.out.println("Enter the size of the array");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array");
+        for(int i=0;i<n;i++)
         {
-            for (int j=0; j<3; j++)
-            {
-                arr2[j][i] = arr[i][j];
-            }
+            arr[i] = sc.nextInt();
         }
-        System.out.println("Initialized array: ");
-        for(int i=0; i<3; i++)
+        int l=0,k=0;
+        int[] even = new int[n];
+        int[] odd = new int[n];
+        for(int i=0;i<n;i++)
         {
-            for (int j=0; j<3; j++)
+            if(arr[i]%2==0)
             {
-                System.out.print(arr[i][j]+" ");
-            }
-            System.out.println();
-        }
-        System.out.println("Array after Transpose: ");
-        for(int i=0; i<3; i++)
-        {
-            for (int j=0; j<3; j++)
-            {
-                System.out.print(arr2[i][j]+" ");
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
-    static void even_odd()
-    {
-        int j= 0, k=0;
-        int array[] = {1,2,3,4,5,6,7,8,9,10};
-        int even[] = new int[5];
-        int odd[] = new int[5];
-        for(int i=0; i<10;i++)
-        {
-            if (array[i]%2 == 0)
-            {
-                even[j++] =array[i];
+                even[l]=arr[i];
+                l++;
             }
             else
             {
-                odd[k++] = array[i];
+                odd[k]=arr[i];
+                k++;
             }
         }
-        System.out.println("Matrix elements are: ");
-        for(int i=0; i<10;i++)
-        {
-            System.out.print(array[i]+" ");
-        }
-        System.out.println();
-        System.out.println("Even Matrix elements are: ");
-        for(int i=0; i<5;i++)
+        System.out.println("Even numbers are:");
+        for(int i=0;i<l;i++)
         {
             System.out.print(even[i]+" ");
         }
         System.out.println();
-        System.out.println("Odd Matrix elements are: ");
-        for(int i=0; i<5;i++)
+        System.out.println("Odd numbers are:");
+        for(int i=0;i<k;i++)
         {
             System.out.print(odd[i]+" ");
         }
-    }
-    public static void main(String[] args)
+
+   }
+}
+class transpose extends Method_overriding
+{
+ void meth()
+ {
+  super.meth();
+  int[][] mat = new int[3][3];
+    int i,j;
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the elements of the matrix");
+    for(i=0;i<3;i++)
     {
-        Transpose();
-        even_odd();
+        for(j=0;j<3;j++)
+        {
+            mat[i][j] = sc.nextInt();
+        }
+    }
+    System.out.println("The matrix is:");
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            System.out.print(mat[i][j]+" ");
+        }
+        System.out.println();
+    }
+    System.out.println("The transpose of the matrix is:");
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            System.out.print(mat[j][i]+" ");
+        }
+        System.out.println();
+    }
+ }
+ //main method
+    public static void main(String[] args) {
+    transpose obj = new transpose();
+    obj.meth();
     }
 }
