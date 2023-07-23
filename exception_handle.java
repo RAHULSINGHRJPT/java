@@ -1,5 +1,5 @@
 
-// design a java code to implement exception handeling
+// design a java code to implementmeathod overloading
 
 class meathod_overloading
     static int add(int a, int b){
