@@ -1,7 +1,7 @@
 
 // design a java code to implement exception handeling
 
-class exception_handle{
+class meathod_overloading
     static int add(int a, int b){
         return a+b;
     }
