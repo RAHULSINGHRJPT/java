@@ -1,3 +1,4 @@
+//-Design a java code for implementing Binary Search, pass array as parameter to the method
 public class binary {
     
     Node root;
