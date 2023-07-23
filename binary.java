@@ -1,29 +1,28 @@
-//Design a java code for implementation of binary search , pass array as parameter to the function 
+public class binary {
+    
+    Node root;
 
-import java.util.*;
-class binary{  
-    public static int binarySearch(int arr[], int first, int last, int key){  
-        if (last>=first){  
-            int mid = first + (last - first)/2;  
-            if (arr[mid] == key){  
-            return mid;  
-            }  
-            if (arr[mid] > key){  
-            return binarySearch(arr, first, mid-1, key);//search in left subarray  
-            }else{  
-            return binarySearch(arr, mid+1, last, key);//search in right subarray  
-            }  
-        }  
-        return -1;  
-    }  
-    public static void main(String args[]){  
-        int arr[] = {10,20,30,40,50};  
-        int key = 30;  
-        int last=arr.length-1;  
-        int result = binarySearch(arr,0,last,key);  
-        if (result == -1)  
-            System.out.println("Element is not found!");  
-        else  
-            System.out.println("Element is found at index: "+result);  
-    }  
-}  
+    int getLevelDiff(Node node) {
+        if (node == null)
+            return 0;
+
+        return node.data - getLevelDiff(node.left) - getLevelDiff(node.right);
+    }
+
+    public static void main(String[] args) {
+        binary tree = new binary();
+
+        // Creating the binary tree
+        tree.root = new Node(1);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(3);
+        tree.root.left.left = new Node(4);
+        tree.root.left.right = new Node(5);
+        tree.root.right.left = new Node(6);
+        tree.root.right.right = new Node(7);
+
+        int levelDiff = tree.getLevelDiff(tree.root);
+        System.out.println("Difference between the sum of odd level and even level nodes: " + levelDiff);
+    }
+}
+
